@@ -1,9 +1,10 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Container, Nav, NavDropdown, Form, FormControl, Button, Offcanvas } from 'react-bootstrap'
+import CartWidget from './CartWidget';
 
 const MyNavbar = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
                 <Navbar.Brand href="#home">ShoeDerHouse</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -27,6 +28,8 @@ const MyNavbar = () => {
                         />
                         <Button variant="success">Search</Button>
                     </Form>
+
+                    <CartWidget number="4"/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

@@ -1,38 +1,4 @@
-.App {
-  text-align: center;
-}
+.cart {position: relative; margin-left: 20px;}
+.cart .number-notif{position: absolute; width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; background-color: red; border-radius: 50px; color: #fff; font-size: 0.5em; top: -7.5px; right: -7.5px;}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+.listContainer{display: flex; justify-content: center; align-items: center; height: 80vh;}
