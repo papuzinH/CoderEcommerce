@@ -7,8 +7,7 @@ function App() {
     <div className="App">
       <header>
         <Navbar />
-
-        <ItemListContainer greeting="Texto para ser reemplazado por el catálogo de la tienda" />
+        <ItemListContainer/>
       </header>
     </div>
   );

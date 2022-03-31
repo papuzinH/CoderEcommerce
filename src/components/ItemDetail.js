@@ -1,4 +1,4 @@
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import ItemCount from "./ItemCount";
 
 const ItemDetail = () => {
