@@ -1,8 +1,10 @@
+import ItemDetail from "./ItemDetail";
+
 const ItemListContainer = (props) => {
     return (
 
         <div className="listContainer">
-            <p>{props.greeting}</p>
+            <ItemDetail />
         </div>
     )
 }
