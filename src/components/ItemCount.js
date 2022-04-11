@@ -3,8 +3,8 @@ import { Button } from "react-bootstrap";
 import { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
+  
   const [counter, setCounter] = useState(initial);
-
   const AddItem = () => {
     if (counter < stock) {
       setCounter(counter + 1);

@@ -1,38 +1,38 @@
 import ItemCount from "./ItemCount";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Badge } from "react-bootstrap";
 import Image from 'react-bootstrap/Image'
 import { Carousel } from "react-bootstrap";
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ( {id, name, price, stock, initial, photo1, photo2, photo3, description} ) => {
 
     const AddToCart = (quantity) => {
         alert("Seleccionaste " + quantity + " productos");
     }
 
+
     return (
         <>
-
             <Row className="py-5">
                 <Col>
-                    <Carousel interval="3000">
+                    <Carousel interval="3000" variant="dark">
                         <Carousel.Item>
                             <img
                                 className="d-block m-auto"
-                                src="https://www.digitalsport.com.ar/files/products/621e4f8717255-547661-500x500.jpg"
+                                src={photo1}
                                 alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block m-auto"
-                                src="https://www.digitalsport.com.ar/files/products/621e4f88eb5ee-547661-500x500.jpg"
+                                src={photo2}
                                 alt="Second slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block m-auto"
-                                src="https://www.digitalsport.com.ar/files/products/621e4f89d9fc8-547661-500x500.jpg"
+                                src={photo3}
                                 alt="Third slide"
                             />
                         </Carousel.Item>
@@ -41,17 +41,23 @@ const ItemDetail = ({ item }) => {
                 <Col className="py-5">
                     <Row>
                         <Col>
-                            <h1>{item.name}</h1>
+                            <h1>{name}</h1>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <p>Con sus líneas simples, el look de atletismo tradicional y, por supuesto, la amortiguación Air visible, el Nike Air Max SC es el toque final perfecto para cualquier atuendo. La mezcla rica de materiales agrega profundidad, a la vez que lo convierte en un calzado duradero y ligero para el día a día.</p>
+                            <h2>{price}</h2>
+                        </Col>
+                    </Row>
+                    <Badge bg="info" className="mb-2">Stock: {stock} </Badge>
+                    <Row>
+                        <Col>
+                            <p>{description}</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <ItemCount stock={5} initial={1} onAdd={AddToCart} />
+                            <ItemCount stock={parseInt(stock)} initial={parseInt(initial)} onAdd={AddToCart} />
                         </Col>
                     </Row>
 
