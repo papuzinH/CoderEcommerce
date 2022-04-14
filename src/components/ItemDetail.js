@@ -1,14 +1,20 @@
 import ItemCount from "./ItemCount";
 import { Row, Col, Badge } from "react-bootstrap";
-import Image from 'react-bootstrap/Image'
 import { Carousel } from "react-bootstrap";
+import { useState } from "react";
+import { Button } from "react-bootstrap";
+import AddToCartToast from "./AddToCartToast";
+import { Link } from "react-router-dom";
 
-const ItemDetail = ( {id, name, price, stock, initial, photo1, photo2, photo3, description} ) => {
+const ItemDetail = ({ name, price, stock, photo1, photo2, photo3, description }) => {
 
     const AddToCart = (quantity) => {
-        alert("Seleccionaste " + quantity + " productos");
+        setitemCounter(quantity);
     }
 
+    const [itemCounter, setitemCounter] = useState(0);
+
+    console.log(itemCounter)
 
     return (
         <>
@@ -50,14 +56,24 @@ const ItemDetail = ( {id, name, price, stock, initial, photo1, photo2, photo3, d
                         </Col>
                     </Row>
                     <Badge bg="info" className="mb-2">Stock: {stock} </Badge>
-                    <Row>
+                    <Row className="mb-5">
                         <Col>
                             <p>{description}</p>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <ItemCount stock={parseInt(stock)} initial={parseInt(initial)} onAdd={AddToCart} />
+                            {itemCounter !== 0 ?
+                                (<>
+                                    <Link to="/cart" className="d-grid gap-2"><Button className="py-4" size="lg">Go to cart</ Button></Link>
+                               
+                                    <AddToCartToast  quantity={itemCounter} name={name} />
+                                </>)
+                                : <ItemCount stock={parseInt(stock)} initial={itemCounter} onAdd={AddToCart} />
+                            }
+
+
+
                         </Col>
                     </Row>
 
