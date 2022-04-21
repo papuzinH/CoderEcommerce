@@ -1,12 +1,14 @@
-import './App.css';
-import Navbar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import { Cart } from './components/Cart';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import "./App.css";
+import Navbar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import Cart from "./components/Cart";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CartContextProvider from "./components/CartContext"
 
 function App() {
   return (
+    <CartContextProvider>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -16,6 +18,7 @@ function App() {
           <Route path="/item/:idItem" element={<ItemDetailContainer />} />
         </Routes>
       </BrowserRouter>
+    </CartContextProvider>
     // <div className="App">
     //   <header>
     //     <Navbar />
@@ -24,6 +27,5 @@ function App() {
     // </div>
   );
 }
-
 
 export default App;

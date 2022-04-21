@@ -23,7 +23,7 @@ const ItemDetailContainer = () => {
     <>
       {dato.length != 0 ? (
         <Container>
-          <ItemDetail id={dato.id} name={dato.name} price={dato.price} stock={dato.stock} initial={dato.initial} photo1={dato.photo1} photo2={dato.photo2} photo3={dato.photo3} description={dato.description} />
+          <ItemDetail item = {dato} />
         </Container>
       ) : (
         <Spinner animation="border" variant="primary" />

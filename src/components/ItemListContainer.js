@@ -6,6 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
+  
   const [datos, setDatos] = useState([]);
 
   const { idCategory } = useParams();

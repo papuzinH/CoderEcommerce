@@ -1,15 +1,21 @@
 import ItemCount from "./ItemCount";
 import { Row, Col, Badge } from "react-bootstrap";
 import { Carousel } from "react-bootstrap";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Button } from "react-bootstrap";
 import AddToCartToast from "./AddToCartToast";
 import { Link } from "react-router-dom";
+import { CartContext } from "./CartContext";
 
-const ItemDetail = ({ name, price, stock, photo1, photo2, photo3, description }) => {
+const ItemDetail = ({ item }) => {
+
+    const test = useContext(CartContext);
+
+    console.log(test)
 
     const AddToCart = (quantity) => {
         setitemCounter(quantity);
+        test.addToCart(item, quantity)
     }
 
     const [itemCounter, setitemCounter] = useState(0);
@@ -24,21 +30,21 @@ const ItemDetail = ({ name, price, stock, photo1, photo2, photo3, description })
                         <Carousel.Item>
                             <img
                                 className="d-block m-auto"
-                                src={photo1}
+                                src={item.photo1}
                                 alt="First slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block m-auto"
-                                src={photo2}
+                                src={item.photo2}
                                 alt="Second slide"
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block m-auto"
-                                src={photo3}
+                                src={item.photo3}
                                 alt="Third slide"
                             />
                         </Carousel.Item>
@@ -47,18 +53,18 @@ const ItemDetail = ({ name, price, stock, photo1, photo2, photo3, description })
                 <Col className="py-5">
                     <Row>
                         <Col>
-                            <h1>{name}</h1>
+                            <h1>{item.name}</h1>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <h2>{price}</h2>
+                            <h2>{item.price}</h2>
                         </Col>
                     </Row>
-                    <Badge bg="info" className="mb-2">Stock: {stock} </Badge>
+                    <Badge bg="info" className="mb-2">Stock: {item.stock} </Badge>
                     <Row className="mb-5">
                         <Col>
-                            <p>{description}</p>
+                            <p>{item.description}</p>
                         </Col>
                     </Row>
                     <Row>
@@ -67,9 +73,9 @@ const ItemDetail = ({ name, price, stock, photo1, photo2, photo3, description })
                                 (<>
                                     <Link to="/cart" className="d-grid gap-2"><Button className="py-4" size="lg">Go to cart</ Button></Link>
                                
-                                    <AddToCartToast  quantity={itemCounter} name={name} />
+                                    <AddToCartToast  quantity={itemCounter} name={item.name} />
                                 </>)
-                                : <ItemCount stock={parseInt(stock)} initial={itemCounter} onAdd={AddToCart} />
+                                : <ItemCount stock={parseInt(item.stock)} initial={itemCounter} onAdd={AddToCart} />
                             }
 
 

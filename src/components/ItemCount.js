@@ -4,6 +4,8 @@ import { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
   
+console.log(stock, initial, onAdd)
+
   const [counter, setCounter] = useState(initial);
   const AddItem = () => {
     if (counter < stock) {

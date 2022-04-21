@@ -1,3 +1,5 @@
+p {margin-bottom: 0;}
+
 .cart {position: relative; margin-left: 20px;}
 .cart .number-notif{position: absolute; width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; background-color: red; border-radius: 50px; color: #fff; font-size: 0.5em; top: -7.5px; right: -7.5px;}
 
