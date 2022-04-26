@@ -50,7 +50,7 @@ const MyNavbar = () => {
             />
             <Button variant="success">Search</Button>
           </Form>
-          <CartWidget/>
+          <Link to="/cart"><CartWidget/></Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>
