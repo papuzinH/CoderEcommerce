@@ -21,8 +21,7 @@ const ItemListContainer = () => {
         .then((result) => setDatos(result))
         .catch((err) => console.log(err));
     }
-
-    console.log(idCategory);
+    
   }, [idCategory]); //Importante la dependencia del useEffect para que se ejecute cuando "datos" es modificado.
 
   return (

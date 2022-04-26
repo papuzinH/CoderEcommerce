@@ -14,6 +14,8 @@ import {
 import CartWidget from "./CartWidget";
 
 const MyNavbar = () => {
+
+  
   return (
     <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
@@ -26,11 +28,17 @@ const MyNavbar = () => {
           <Nav className="me-auto">
             <Nav.Link href="#features">Sobre Nosotros</Nav.Link>
             <NavDropdown title="Categorías" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1"><Link to="/category/1">Deportivas</Link></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.1">
+                <Link to="/category/1">Deportivas</Link>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2"><Link to="/category/2">Urbanas</Link></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                <Link to="/category/2">Urbanas</Link>
+              </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3"><Link to="/category/3">Running</Link></NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">
+                <Link to="/category/3">Running</Link>
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Form className="d-flex">
@@ -42,8 +50,7 @@ const MyNavbar = () => {
             />
             <Button variant="success">Search</Button>
           </Form>
-
-          <CartWidget number="4" />
+          <CartWidget/>
         </Navbar.Collapse>
       </Container>
     </Navbar>

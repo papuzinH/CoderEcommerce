@@ -1,7 +1,7 @@
 import ItemCount from "./ItemCount";
 import { Row, Col, Badge } from "react-bootstrap";
 import { Carousel } from "react-bootstrap";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import AddToCartToast from "./AddToCartToast";
 import { Link } from "react-router-dom";
@@ -11,16 +11,12 @@ const ItemDetail = ({ item }) => {
 
     const test = useContext(CartContext);
 
-    console.log(test)
-
     const AddToCart = (quantity) => {
         setitemCounter(quantity);
         test.addToCart(item, quantity)
     }
 
     const [itemCounter, setitemCounter] = useState(0);
-
-    console.log(itemCounter)
 
     return (
         <>
@@ -58,7 +54,7 @@ const ItemDetail = ({ item }) => {
                     </Row>
                     <Row>
                         <Col>
-                            <h2>{item.price}</h2>
+                            <h2>{parseFloat(item.price).toLocaleString("es", { style: "currency", currency: "USD", maximumSignificantDigits: 4 })}</h2>
                         </Col>
                     </Row>
                     <Badge bg="info" className="mb-2">Stock: {item.stock} </Badge>

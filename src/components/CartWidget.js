@@ -1,12 +1,18 @@
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import "bootstrap-icons/font/bootstrap-icons.css";
+import { React, useContext, useEffect } from "react";
+import { CartContext } from "./CartContext";
 
-const CartWidget = (props) => {
-    return (
-        <div className='cart'>
-            <i className="bi bi-cart"></i>
-            <div className="number-notif">{props.number}</div>
-        </div>
-    )
-}
+const CartWidget = () => {
+  const cart = useContext(CartContext);
 
-export default CartWidget
+  return (
+    <div className="cart">
+      <i className="bi bi-cart"></i>
+      {cart.cartQuantity() > 0 && (
+        <div className="number-notif">{cart.cartQuantity()}</div>
+      )}
+    </div>
+  );
+};
+
+export default CartWidget;
