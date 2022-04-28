@@ -19,13 +19,13 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <div className="itemCount mb-3 d-flex justify-content-between p-2">
+      <div className=" itemCount mb-3 d-flex justify-content-between p-2">
         <i className="bi bi-dash-lg" onClick={RemoveItem}></i>
         {counter}
         <i className="bi bi-plus-lg" onClick={AddItem}></i>
       </div>
       <div className="d-grid">
-        <Button variant="primary" size="lg" onClick={() => onAdd(counter)}>
+        <Button className="shadow" variant="danger" size="lg" onClick={() => onAdd(counter)}>
           Add to cart
         </Button>
       </div>

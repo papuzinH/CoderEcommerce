@@ -1,11 +1,26 @@
+
+*{transition: 0.2s;}
+
+a{text-decoration: none !important; color: black !important;}
+
 p {margin-bottom: 0;}
 
 .cart {position: relative; margin-left: 20px;}
 .cart .number-notif{position: absolute; width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; background-color: red; border-radius: 50px; color: #fff; font-size: 0.5em; top: -7.5px; right: -7.5px;}
 
+.card {border-radius: 15px !important;}
+.card-title {text-transform: capitalize;}
+
 .listContainer{display: flex; justify-content: center; align-items: center; height: 80vh;}
 
+.btn{background-color: #212121 !important; border-color: #FFC107 !important; }
 .btn a {color: #fff; text-decoration: none;}
-.btn a:hover {color: #fff;}
+.btn:hover{background-color: #FFC107 !important; border-color: #FFC107 !important;}
+.btn:hover a {color: #fff;}
 
 .itemCount i {cursor: pointer;}
+
+.product-name {text-transform: capitalize;}
+
+.bi-x-circle-fill {font-size: 2rem; cursor: pointer; transition: 0.2s;}
+.bi-x-circle-fill:hover{color: black !important; transition: 0.2s;}

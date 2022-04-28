@@ -8,10 +8,10 @@ import CartContextProvider from "./components/CartContext"
 
 function App() {
   return (
-    <CartContextProvider>
+    <CartContextProvider >
       <BrowserRouter>
         <Navbar />
-        <Routes>
+        <Routes >
           <Route exact path="/" element={<ItemListContainer />} />
           <Route exact path="/cart" element={<Cart />} />
           <Route path="/category/:idCategory" element={<ItemListContainer />} />

@@ -5,8 +5,11 @@ import { Col, Row, Container, Button, Card, Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import CartTotals from "./CartTotals";
 
+
 const Cart = () => {
   const test = useContext(CartContext);
+
+
 
   return (
     <>
@@ -34,7 +37,7 @@ const Cart = () => {
                       <img src={item.imgItem} width="100%" />
                     </Col>
                     <Col sm={4}>
-                      <h4 className="mb-0">{item.nameItem}</h4>
+                      <h4 className="mb-0 product-name">{item.nameItem}</h4>
                     </Col>
                     <Col sm={2}>
                       <p className="mb-0">Price: </p>
@@ -45,21 +48,21 @@ const Cart = () => {
                       <h5 className="mb-0"> {item.quantityItem}</h5>
                     </Col>
                     <Col sm={2}>
-                      <Button onClick={() => test.removeOfCart(item.idItem)}>
-                        Delete
-                      </Button>
+
+                      <i onClick={() => test.removeOfCart(item.idItem)} class="bi bi-x-circle-fill text-danger" ></i>
+
                     </Col>
                   </Row>
                   <hr />
-                  </>
+                </>
               ))}</Col>
-              <CartTotals subtotal={test.cartSubTotalPrice()} taxes={test.cartTaxes(40)} discount={test.cartDiscount(20)}  />
+              <CartTotals subtotal={test.cartSubTotalPrice()} taxes={test.cartTaxes(40)} discount={test.cartDiscount(20)} />
             </Row>
           </>
         ) : (
-          <Alert variant="warning" className="text-center p-5">
+          <Alert variant="dark" className="text-center p-5">
             <Alert.Heading className="mb-5">Your cart is empty!</Alert.Heading>
-            <Link to="/"><Button variant="warning">Go to shop</Button></Link>
+            <Link to="/"><Button>Go to shop</Button></Link>
           </Alert>
         )}
       </Container>

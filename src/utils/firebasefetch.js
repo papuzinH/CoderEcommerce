@@ -7,10 +7,11 @@ export const firestoreFetch = async (idCategory) => {
     let storecollection;
     //Si hay idCategory, traer esa coleccion. Sino, traer todas.
     if (idCategory) {
-        storecollection = query(collection(db, "products"), where('categoryId', '==', idCategory));
+        storecollection = query(collection(db, "products"), where('idCategory', '==', idCategory));
     } else {
         storecollection = query(collection(db, "products"), orderBy('name'));
     }
+    console.log(storecollection)
     //Obtengo la data de la coleccion
     const getCollection = await getDocs(storecollection);
     //La mapeo y les agrego un id

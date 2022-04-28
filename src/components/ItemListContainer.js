@@ -11,6 +11,7 @@ const ItemListContainer = () => {
   const [datos, setDatos] = useState([]);
 
   const { idCategory } = useParams();
+  
 
   useEffect(() => {
 
@@ -18,21 +19,11 @@ const ItemListContainer = () => {
       .then(result => setDatos(result))
       .catch(err => console.log(err));
 
-
-    // if (idCategory == undefined) {
-    //   customFetch(2000, shoes)
-    //     .then((result) => setDatos(result))
-    //     .catch((err) => console.log(err));
-    // }else{
-    //   customFetch(2000, shoes.filter(item => item.idCategory == parseInt(idCategory)))
-    //     .then((result) => setDatos(result))
-    //     .catch((err) => console.log(err));
-    // }
-
   }, [idCategory]); //Importante la dependencia del useEffect para que se ejecute cuando "datos" es modificado.
 
+  console.log(datos)
   return (
-    <Container>
+    <Container className="pt-5">
       <Row>
         <ItemList items={datos} />
       </Row>

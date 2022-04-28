@@ -8,8 +8,7 @@ import {
   NavDropdown,
   Form,
   FormControl,
-  Button,
-  Offcanvas,
+  Button
 } from "react-bootstrap";
 import CartWidget from "./CartWidget";
 
@@ -26,18 +25,14 @@ const MyNavbar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Sobre Nosotros</Nav.Link>
-            <NavDropdown title="Categorías" id="collasible-nav-dropdown">
+            <Nav.Link href="#features">About Us</Nav.Link>
+            <NavDropdown title="Brands" id="collasible-nav-dropdown">
               <NavDropdown.Item href="#action/3.1">
-                <Link to="/category/1">Deportivas</Link>
+                <Link to="/category/1">Nike</Link>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.2">
-                <Link to="/category/2">Urbanas</Link>
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">
-                <Link to="/category/3">Running</Link>
+                <Link to="/category/2">Adidas</Link>
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
