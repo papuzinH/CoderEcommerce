@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
-import customFetch from "../data/customfetch";
-import { shoes } from "../data/shoes";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { firestoreFetch } from "../utils/firebasefetch";

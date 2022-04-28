@@ -1,3 +1,7 @@
+/*
+
+ARCHIVO EN DESUSO POR LA INTEGRACIÓN DE FIRESTORE
+
 export const shoes =  [
         {
             "id" : 1000,
@@ -111,4 +115,4 @@ export const shoes =  [
             "initial": "1"
         }
     ]
-    
+    */

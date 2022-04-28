@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail";
-import customFetch from "../data/customfetch";
-import { shoes } from "../data/shoes";
 import { Container, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { firestoreFetchOne } from "../utils/firebasefetch";
