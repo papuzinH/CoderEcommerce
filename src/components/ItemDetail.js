@@ -17,33 +17,20 @@ const ItemDetail = ({ item }) => {
     }
 
     const [itemCounter, setitemCounter] = useState(0);
-
+    
     return (
         <>
             <Row className="py-5">
                 <Col>
                     <Carousel interval="3000" variant="dark">
-                        <Carousel.Item>
-                            <img
-                                className="d-block m-auto"
-                                src={item.photo1}
-                                alt="First slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block m-auto"
-                                src={item.photo2}
-                                alt="Second slide"
-                            />
-                        </Carousel.Item>
-                        <Carousel.Item>
-                            <img
-                                className="d-block m-auto"
-                                src={item.photo3}
-                                alt="Third slide"
-                            />
-                        </Carousel.Item>
+                        {item.photos.map(one_photo => 
+                            <Carousel.Item>
+                                <img
+                                    className="d-block m-auto"
+                                    src={one_photo}
+                                />
+                            </Carousel.Item>
+                        )}
                     </Carousel>
                 </Col>
                 <Col className="py-5">
@@ -68,8 +55,8 @@ const ItemDetail = ({ item }) => {
                             {itemCounter !== 0 ?
                                 (<>
                                     <Link to="/cart" className="d-grid gap-2"><Button className="py-4" size="lg">Go to cart</ Button></Link>
-                               
-                                    <AddToCartToast  quantity={itemCounter} name={item.name} />
+
+                                    <AddToCartToast quantity={itemCounter} name={item.name} />
                                 </>)
                                 : <ItemCount stock={parseInt(item.stock)} initial={itemCounter} onAdd={AddToCart} />
                             }

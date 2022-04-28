@@ -7,7 +7,6 @@ import CartTotals from "./CartTotals";
 
 const Cart = () => {
   const test = useContext(CartContext);
-  
 
   return (
     <>
@@ -38,11 +37,11 @@ const Cart = () => {
                       <h4 className="mb-0">{item.nameItem}</h4>
                     </Col>
                     <Col sm={2}>
-                      <p>Price: </p>
+                      <p className="mb-0">Price: </p>
                       <h5 className="mb-0">{parseFloat(item.priceItem).toLocaleString("es", { style: "currency", currency: "USD" })}</h5>
                     </Col>
                     <Col sm={2}>
-                      <p>Quantity:</p>
+                      <p className="mb-0">Quantity:</p>
                       <h5 className="mb-0"> {item.quantityItem}</h5>
                     </Col>
                     <Col sm={2}>
