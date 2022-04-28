@@ -1,15 +1,19 @@
+//Packages
 import { useState, useEffect } from "react";
-import ItemList from "./ItemList";
 import { Container, Row, Col } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+
+//Utils
 import { firestoreFetch } from "../utils/firebasefetch";
+
+//Components
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
 
   const [datos, setDatos] = useState([]);
 
   const { idCategory } = useParams();
-  
 
   useEffect(() => {
 
@@ -19,10 +23,9 @@ const ItemListContainer = () => {
 
   }, [idCategory]); //Importante la dependencia del useEffect para que se ejecute cuando "datos" es modificado.
 
-  console.log(datos)
   return (
     <Container className="pt-5">
-      <Row>
+      <Row className="g-3">
         <ItemList items={datos} />
       </Row>
     </Container>

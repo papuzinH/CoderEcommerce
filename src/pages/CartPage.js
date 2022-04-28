@@ -1,4 +1,4 @@
-import React from 'react'
+//Components
 import Cart from '../components/Cart'
 
 const CartPage = () => {

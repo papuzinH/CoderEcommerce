@@ -1,4 +1,4 @@
-import React from 'react'
+//Components
 import ItemDetailContainer from '../components/ItemDetailContainer'
 
 const ItemPage = () => {

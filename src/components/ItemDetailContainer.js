@@ -1,10 +1,16 @@
+//Packages
 import { useState, useEffect } from "react";
-import ItemDetail from "./ItemDetail";
 import { Container, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+
+//Utils
 import { firestoreFetchOne } from "../utils/firebasefetch";
 
+//Components
+import ItemDetail from "./ItemDetail";
+
 const ItemDetailContainer = () => {
+  
   const [dato, setDato] = useState([]);
 
   const { idItem } = useParams();

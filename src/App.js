@@ -1,13 +1,22 @@
+//Styles
 import "./App.css";
-import Navbar from "./components/NavBar";
+
+//Packages
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
+//Pages
+import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import ItemPage from "./pages/ItemPage";
-import Home from "./pages/Home";
-import ItemDetailContainer from "./components/ItemDetailContainer";
-import Cart from "./components/Cart";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CartContextProvider from "./components/CartContext"
 import CartPage from "./pages/CartPage";
+
+//Components
+import Navbar from "./components/NavBar";
+
+//Context
+import CartContextProvider from "./context/CartContext"
+
 
 function App() {
   return (
@@ -22,12 +31,6 @@ function App() {
         </Routes>
       </BrowserRouter>
     </CartContextProvider>
-    // <div className="App">
-    //   <header>
-    //     <Navbar />
-    //     <ItemDetailContainer/>
-    //   </header>
-    // </div>
   );
 }
 

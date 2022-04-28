@@ -1,8 +1,11 @@
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { React, useContext, useEffect } from "react";
-import { CartContext } from "./CartContext";
+//Packages
+import { useContext } from "react";
+
+//Contexts
+import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
+  
   const cart = useContext(CartContext);
 
   return (

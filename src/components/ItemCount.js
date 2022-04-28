@@ -1,16 +1,16 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Button } from "react-bootstrap";
+//Packages
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-  
-
   const [counter, setCounter] = useState(initial);
+
   const AddItem = () => {
     if (counter < stock) {
       setCounter(counter + 1);
     }
   };
+
   const RemoveItem = () => {
     if (counter > initial) {
       setCounter(counter - 1);
@@ -25,11 +25,17 @@ const ItemCount = ({ stock, initial, onAdd }) => {
         <i className="bi bi-plus-lg" onClick={AddItem}></i>
       </div>
       <div className="d-grid">
-        <Button className="shadow" variant="danger" size="lg" onClick={() => onAdd(counter)}>
+        <Button
+          className="shadow item-btn"
+          variant="danger"
+          size="lg"
+          onClick={() => onAdd(counter)}
+        >
           Add to cart
         </Button>
       </div>
     </>
   );
 };
+
 export default ItemCount;

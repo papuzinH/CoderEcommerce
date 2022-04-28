@@ -12,7 +12,8 @@ p {margin-bottom: 0;}
 
 .listContainer{display: flex; justify-content: center; align-items: center; height: 80vh;}
 
-.btn{background-color: #212121 !important; border-color: #FFC107 !important; transition: 0.2s; }
+.btn{background-color: #212121 !important; border-color: #212121 !important; transition: 0.2s; }
+.btn.item-btn {border-color: #FFC107 !important;}
 .btn a {color: #fff; text-decoration: none;}
 .btn:hover{background-color: #FFC107 !important; border-color: #FFC107 !important; transition: 0.2s;}
 .btn:hover a {color: #fff;}
@@ -23,3 +24,5 @@ p {margin-bottom: 0;}
 
 .bi-x-circle-fill {font-size: 2rem; cursor: pointer; transition: 0.2s;}
 .bi-x-circle-fill:hover{color: black !important; transition: 0.2s;}
+
+.item-detail-carousel {border-radius: 50px; overflow: hidden;}
