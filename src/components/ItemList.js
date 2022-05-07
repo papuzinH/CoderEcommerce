@@ -17,8 +17,10 @@ const ItemList = ({ items }) => {
                         stock={one_item.stock}
                         brand={one_item.brand} />
                 </Col>)
-                :
-                <Spinner animation="border" variant="primary" />}
+                : (
+                    <div className="d-flex justify-content-center align-items-center vh-100">
+                        <img width={400} src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6409fc47039767.586e69e19a37a.gif" />
+                    </div>)}
         </>
     );
 }

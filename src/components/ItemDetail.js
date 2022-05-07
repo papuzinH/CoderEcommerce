@@ -25,7 +25,7 @@ const ItemDetail = ({ item }) => {
     <>
       <Row className="py-5">
         <Col>
-          <Carousel className="item-detail-carousel" interval="3000" variant="dark">
+          <Carousel className="item-detail-carousel overflow-hidden shadow" interval="3000" variant="dark">
             {item.photos.map((one_photo) => (
               <Carousel.Item>
                 <img className="d-block m-auto" src={one_photo} />
@@ -36,7 +36,7 @@ const ItemDetail = ({ item }) => {
         <Col className="py-5 align-self-center">
           <Row>
             <Col>
-              <h1 className="product-name">{item.name}</h1>
+              <h1 className="text-uppercase fst-italic fw-bold">{item.name}</h1>
             </Col>
           </Row>
           <Row>
@@ -52,6 +52,9 @@ const ItemDetail = ({ item }) => {
           </Row>
           <Badge bg="warning" className="mb-2">
             Stock: {item.stock}{" "}
+          </Badge>
+          <Badge bg="danger" className="ms-2">
+            {item.brand.toUpperCase()}
           </Badge>
           <Row className="mb-5">
             <Col>

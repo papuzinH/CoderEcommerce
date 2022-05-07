@@ -10,9 +10,11 @@ import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import ItemPage from "./pages/ItemPage";
 import CartPage from "./pages/CartPage";
+import AboutUs from './pages/AboutUs'
 
 //Components
 import Navbar from "./components/NavBar";
+import Footer from "./components/Footer";
 
 //Context
 import CartContextProvider from "./context/CartContext"
@@ -28,7 +30,9 @@ function App() {
           <Route exact path="/cart" element={<CartPage />} />
           <Route path="/category/:idCategory" element={<CategoryPage />} />
           <Route path="/item/:idItem" element={<ItemPage />} />
+          <Route path="/aboutus" element={<AboutUs />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </CartContextProvider>
   );

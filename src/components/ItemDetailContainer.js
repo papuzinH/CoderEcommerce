@@ -16,19 +16,26 @@ const ItemDetailContainer = () => {
   const { idItem } = useParams();
 
   useEffect(() => {
-    firestoreFetchOne(idItem)
+    window.scrollTo(0, 0);
+    setTimeout(() => {
+      firestoreFetchOne(idItem)
       .then(result => setDato(result))
       .catch(err => console.log(err))
+    }, 2000);
+    
+      
   }, []);
 
   return (
     <>
       {dato.length != 0 ? (
-        <Container>
+        <Container className="py-5">
           <ItemDetail item={dato} />
         </Container>
       ) : (
-        <Spinner animation="border" variant="primary" />
+        <div className="d-flex justify-content-center align-items-center vh-100">
+        <img width={400}  src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/6409fc47039767.586e69e19a37a.gif" />
+        </div>
       )}
     </>
   );

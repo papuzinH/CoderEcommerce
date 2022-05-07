@@ -1,6 +1,6 @@
 //Packages
 import { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 
 //Utils
@@ -15,16 +15,20 @@ const ItemListContainer = () => {
 
   const { idCategory } = useParams();
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
-
-    firestoreFetch(idCategory)
-      .then(result => setDatos(result))
-      .catch(err => console.log(err));
-
+    setTimeout(() => {
+      firestoreFetch(idCategory)
+        .then(result => setDatos(result))
+        .catch(err => console.log(err));
+        setLoading(true)
+    },2000)
   }, [idCategory]); //Importante la dependencia del useEffect para que se ejecute cuando "datos" es modificado.
 
   return (
-    <Container className="pt-5">
+    <Container id="itemlist" className="py-5">
+      {loading==true ? <h1 className="pb-2 fst-italic fw-bold text-uppercase">Our Products</h1> : ""}
       <Row className="g-3">
         <ItemList items={datos} />
       </Row>
