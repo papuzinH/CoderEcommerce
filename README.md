@@ -1,3 +1,25 @@
+# ShoeDerHouse
+Este proyecto fue realizado para el curso de React, en Coderhouse.
+
+###### This project was made for the React course, in Coderhouse.
+
+## Tecnologias utilizadas / Languages used
+ `HTML5`
+ `CSS3`
+ `Bootstrap`
+ `ReactJS`
+ 
+ ## Test Online
+ https://coder-ecommerce.vercel.app/
+ 
+ 
+ ## Proceso de Compra / Buying Process
+ 
+ ![Alt Text](https://firebasestorage.googleapis.com/v0/b/shoederhouse.appspot.com/o/GIF%20Buy%20Process.gif?alt=media&token=9229ed19-9c90-4be0-8cc6-236cfdb2d42f)
+
+_______________
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
