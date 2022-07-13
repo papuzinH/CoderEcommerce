@@ -1,7 +1,4 @@
 # ShoeDerHouse
-Este proyecto fue realizado para el curso de React, en Coderhouse.
-
-###### This project was made for the React course, in Coderhouse.
 
 ## Tecnologias utilizadas / Languages used
  `HTML5`
