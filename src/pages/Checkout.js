@@ -27,10 +27,12 @@ const Checkout = () => {
 
         try {
             const itemsForDB = cart.cartList.map((item) => ({
+                
                 id: item.idItem,
                 title: item.nameItem,
                 price: item.priceItem,
-                quantity: item.quantityItem
+                quantity: item.quantityItem,
+                size: item.sizeItem
             }));
 
             cart.cartList.forEach(async (item) => {
@@ -52,6 +54,7 @@ const Checkout = () => {
                 // Add a new document with a generated id
 
                 const newOrderRef = doc(collection(db, "orders"));
+                console.log(newOrderRef, order)
                 await setDoc(newOrderRef, order);
                 return newOrderRef;
             };
