@@ -41,6 +41,7 @@ const Cart = () => {
               <Col sm={8}>
                 {cart.cartList.map((item, index) => (
                   <div key={index}>
+                    
                     <Row
                       key={item.idItem}
                       className="align-items-center justify-content-start"
@@ -64,14 +65,18 @@ const Cart = () => {
                         <p className="mb-0">Quantity:</p>
                         <h5 className="mb-0"> {item.quantityItem}</h5>
                       </Col>
-                      <Col sm={2}>
+                      <Col sm={1}>
+                        <p className="mb-0">Size:</p>
+                        <h5 className="mb-0"> {item.sizeItem}</h5>
+                      </Col>
+                      <Col sm={1}>
                         <i
                           onClick={() => { handleShowDelete(); setModalText("Do you want to delete this product from your Cart?");}}
                           className="bi bi-x-circle-fill text-danger"
                         ></i>
                       </Col>
                     </Row>
-                    <ModalConfirmation handleClose={handleCloseDelete} handleFunction={ () =>{ cart.removeOfCart(item.idItem)}} show={showDelete} text={modalText} idItem = {item.idItem} />
+                    <ModalConfirmation handleClose={handleCloseDelete} handleFunction={ () =>{ cart.removeOfCart(index-1)}} show={showDelete} text={modalText} idItem = {item.idItem} />
                     <hr />
                   </div>
                 ))}

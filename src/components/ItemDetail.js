@@ -1,7 +1,7 @@
 //Packages
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Badge, Carousel, Button } from "react-bootstrap";
+import { Row, Col, Badge, Carousel, Button, Form } from "react-bootstrap";
 
 //Contexts
 import { CartContext } from "../context/CartContext";
@@ -16,10 +16,11 @@ const ItemDetail = ({ item }) => {
 
   const AddToCart = (quantity) => {
     setitemCounter(quantity);
-    cart.addToCart(item, quantity);
+    cart.addToCart(item, quantity, size);
   };
 
   const [itemCounter, setitemCounter] = useState(0);
+  const [size, setSize] = useState(0)
 
   return (
     <>
@@ -56,16 +57,36 @@ const ItemDetail = ({ item }) => {
           <Badge bg="danger" className="ms-2">
             {item.brand.toUpperCase()}
           </Badge>
-          <Row className="mb-5">
+          <Row className="mb-2">
             <Col>
               <p>{item.description}</p>
             </Col>
           </Row>
+          <Row className="mb-2">
+            <Col>
+              <Form>
+                {['radio'].map((type) => (
+                  <div key={`inline-${type}`} className="mb-3">
+                    {item.sizes.map((one_size)=>{
+                    return (<Form.Check
+                      inline
+                      label={one_size}
+                      name="group1"
+                      type={type}
+                      id={`inline-${type}-1`}
+                      onClick={()=>setSize(one_size)}
+                    />)
+                  })}
+                  </div>
+                ))}
+              </Form>
+            </Col>
+          </Row>
           <Row>
             <Col>
-              {itemCounter !== 0 ? (
+              {(itemCounter !== 0) && (size !== 0) ? (
                 <>
-                  <Link to="/cart" className="d-grid gap-2">
+                  <Link to="/cart" className="d-grid gap-2" >
                     <Button variant="danger" className="py-4" size="lg">
                       Go to cart
                     </Button>

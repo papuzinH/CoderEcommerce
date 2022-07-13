@@ -1,37 +1,49 @@
 import React from "react";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const CartContext = createContext();
 
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
 
-  const addToCart = (item, quantity) => {
+  const addToCart = (item, quantity, size) => {
+
     //Chequeo si ya existe el producto en mi cart
     let productInCart = cartList.find(
       (one_product) => one_product.idItem === item.id
     );
-    if (productInCart === undefined) {
-      setCartList([
-        ...cartList,
-        {
-          idItem: item.id,
-          imgItem: item.thumbnail,
-          nameItem: item.name,
-          priceItem: item.price,
-          quantityItem: quantity,
-        },
-      ]);
-    } else {
-      productInCart.quantityItem += quantity;
+    if (productInCart) {
+      if (productInCart.sizeItem === size) {
+        productInCart.quantityItem += quantity;
+      } else {
+        addNewProduct(item.id, item.thumbnail, item.name, item.price, quantity, size)
+      }
+    }
+    else {
+      addNewProduct(item.id, item.thumbnail, item.name, item.price, quantity, size)
     }
   };
 
-  const removeOfCart = (id) => {
-    let cartFiltered = cartList.filter(
-      (one_product) => one_product.idItem !== id
-    );
-    setCartList(cartFiltered);
+  const addNewProduct = (id, thumbnail, name, price, quantity, size) => {
+    setCartList([
+      ...cartList,
+      {
+        idItem: id,
+        imgItem: thumbnail,
+        nameItem: name,
+        priceItem: price,
+        quantityItem: quantity,
+        sizeItem: size
+      }
+    ]);
+  }
+
+
+  const removeOfCart = (index) => {
+    console.log(cartList, index)
+    cartList.splice(index, 1)
+    console.log(cartList, index)
+    //setCartList(cartFiltered);
   };
 
   const cleanCart = () => {
@@ -69,7 +81,7 @@ const CartContextProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartList, addToCart, cleanCart, removeOfCart, cartQuantity, cartSubTotalPrice, cartTotalPriceItem, cartTaxes, cartDiscount}}
+      value={{ cartList, addToCart, cleanCart, removeOfCart, cartQuantity, cartSubTotalPrice, cartTotalPriceItem, cartTaxes, cartDiscount }}
     >
       {children}
     </CartContext.Provider>
