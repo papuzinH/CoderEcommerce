@@ -2,6 +2,7 @@
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Badge, Carousel, Button, Form } from "react-bootstrap";
+import { HideUntilLoaded } from 'react-animation'
 
 //Contexts
 import { CartContext } from "../context/CartContext";
@@ -23,7 +24,7 @@ const ItemDetail = ({ item }) => {
   const [size, setSize] = useState(0)
 
   return (
-    <>
+    <><HideUntilLoaded imageToLoad={item.photos}> 
       <Row className="py-5">
         <Col>
           <Carousel className="item-detail-carousel overflow-hidden shadow" interval="3000" variant="dark">
@@ -105,6 +106,7 @@ const ItemDetail = ({ item }) => {
           </Row>
         </Col>
       </Row>
+      </HideUntilLoaded>
     </>
 
   );

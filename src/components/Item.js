@@ -1,9 +1,11 @@
 //Packages
 import { Card, Button, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { HideUntilLoaded } from 'react-animation'
 
 const Item = ({ id, thumbnail, name, price, stock, brand }) => {
   return (
+    <HideUntilLoaded imageToLoad={thumbnail} style={{display: "flex"}}>
     <Card style={{ width: "100%" }} className="overflow-hidden shadow">
       <Card.Img variant="top" src={thumbnail} />
       <Card.Body className="bg-dark">
@@ -18,6 +20,7 @@ const Item = ({ id, thumbnail, name, price, stock, brand }) => {
         </Link>
       </Card.Body>
     </Card>
+    </HideUntilLoaded>
   );
 };
 
