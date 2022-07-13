@@ -8,7 +8,6 @@ const AboutUsContainer = () => {
     
     useEffect(() => {
         setTimeout(()=>{setLoading(false)}, 2000);
-        console.log(loading)
     }, []);    
     
     return (<>
@@ -18,7 +17,6 @@ const AboutUsContainer = () => {
                     <Col xs={6}>
                         <img style={{ width: "100%" }} src="https://foolsparadise.de/static/c5f877cc607316806acdc92ed202909d/85319/sneaker_floating_3753da6b66.png" />
                     </Col>
-
                     <Col xs={6} className="py-5 align-self-center">
                         <Row className="mb-2">
                             <Col>

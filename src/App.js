@@ -10,7 +10,8 @@ import Home from "./pages/Home";
 import CategoryPage from "./pages/CategoryPage";
 import ItemPage from "./pages/ItemPage";
 import CartPage from "./pages/CartPage";
-import AboutUs from './pages/AboutUs'
+import AboutUs from './pages/AboutUs';
+import Checkout from "./pages/Checkout";
 
 //Components
 import Navbar from "./components/NavBar";
@@ -31,6 +32,7 @@ function App() {
           <Route path="/category/:idCategory" element={<CategoryPage />} />
           <Route path="/item/:idItem" element={<ItemPage />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/checkout" element={<Checkout />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

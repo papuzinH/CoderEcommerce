@@ -6,7 +6,7 @@ a{text-decoration: none !important; color: black !important;}
 
 p {margin-bottom: 0;}
 
-.cart {position: relative; margin-left: 20px;}
+.cart {position: relative; margin-left: 0;}
 .cart .number-notif{position: absolute; width: 15px; height: 15px; display: flex; align-items: center; justify-content: center; background-color: red; border-radius: 50px; color: #fff; font-size: 0.5em; top: -7.5px; right: -7.5px;}
 
 .card {border-radius: 15px !important;}
@@ -31,13 +31,16 @@ p {margin-bottom: 0;}
 
 #itemlist, #cartlist{padding-top: 100px !important;}
 
+.checkout_form {height: calc(100vh - 80px); position: relative; top: 80px;}
+
 .navbar{height: 80px;}
 .navbar .dropdown-menu {padding: 0;}
 
 .navbar .navbar-nav>a:hover, .navbar .nav-item:hover {background-color: #FFC107; transition: 0.2s;}
 
-.navbar .navbar-nav>a:hover a, .navbar .nav-item:hover a{color: #fff !important;}
+.navbar .navbar-nav>a:hover a, .navbar .nav-item:hover a{color: #111 !important;}
 .navbar .nav-item:hover .dropdown-item a{color: black !important;}
 .navbar .nav-item .dropdown-item:hover a{color: #fff !important; background-color: #FFC107; transition: 0.2s;}
 .navbar .nav-item .dropdown-toggle {padding-right: 1.5rem!important; padding-left: 1.5rem!important; height: 100%; display: flex; align-items: center;}
 
+input:focus-visible {border-bottom: 2px solid #FFC107 !important; outline: none; transition: 0.5s;}

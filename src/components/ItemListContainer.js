@@ -18,17 +18,19 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+
+    const getData = async () => {
+      setLoading(true)
       firestoreFetch(idCategory)
         .then(result => setDatos(result))
         .catch(err => console.log(err));
-        setLoading(true)
-    },2000)
+    }
+    getData()
   }, [idCategory]); //Importante la dependencia del useEffect para que se ejecute cuando "datos" es modificado.
 
   return (
     <Container id="itemlist" className="py-5">
-      {loading==true ? <h1 className="pb-2 fst-italic fw-bold text-uppercase">Our Products</h1> : ""}
+      {loading == true ? <h1 className="pb-2 fst-italic fw-bold text-uppercase">Our Products</h1> : ""}
       <Row className="g-3">
         <ItemList items={datos} />
       </Row>

@@ -26,8 +26,8 @@ const ItemDetail = ({ item }) => {
       <Row className="py-5">
         <Col>
           <Carousel className="item-detail-carousel overflow-hidden shadow" interval="3000" variant="dark">
-            {item.photos.map((one_photo) => (
-              <Carousel.Item>
+            {item.photos.map((one_photo, index) => (
+              <Carousel.Item key={index}>
                 <img className="d-block m-auto" src={one_photo} />
               </Carousel.Item>
             ))}

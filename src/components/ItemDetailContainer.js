@@ -17,12 +17,12 @@ const ItemDetailContainer = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setTimeout(() => {
-      firestoreFetchOne(idItem)
+    const getData = async() => {
+      await firestoreFetchOne(idItem)
       .then(result => setDato(result))
       .catch(err => console.log(err))
-    }, 2000);
-    
+    }
+    getData();
       
   }, []);
 
