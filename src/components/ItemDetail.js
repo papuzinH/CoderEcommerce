@@ -3,30 +3,42 @@ import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Badge, Carousel, Button, Form } from "react-bootstrap";
 import { HideUntilLoaded } from 'react-animation'
+import { Toast, ToastContainer } from 'react-bootstrap'
 
 //Contexts
 import { CartContext } from "../context/CartContext";
 
 //Components
 import ItemCount from "./ItemCount";
-import Toast from "./Toast";
+
 
 const ItemDetail = ({ item }) => {
 
   const cart = useContext(CartContext);
+  const [itemCounter, setitemCounter] = useState(0);
+  const [size, setSize] = useState(0);
+  const [show, setShow] = useState(false);
 
   const AddToCart = (quantity) => {
+    setShow(true);
     setitemCounter(quantity);
+  };
+
+  const AddToCartReal = (quantity, size) => {
     cart.addToCart(item, quantity, size);
   };
 
-  const [itemCounter, setitemCounter] = useState(0);
-  const [size, setSize] = useState(0)
+  useEffect(() => {
+    if (itemCounter != 0 && size != 0) {
+      AddToCartReal(itemCounter, size)
+    }
+  }, [itemCounter, size])
+
 
   return (
-    <><HideUntilLoaded imageToLoad={item.photos}> 
-      <Row className="py-5">
-        <Col>
+    <><HideUntilLoaded imageToLoad={item.photos}>
+      <Row className="py-5 vh-100">
+        <Col className="align-self-center">
           <Carousel className="item-detail-carousel overflow-hidden shadow" interval="3000" variant="dark">
             {item.photos.map((one_photo, index) => (
               <Carousel.Item key={index}>
@@ -68,16 +80,16 @@ const ItemDetail = ({ item }) => {
               <Form>
                 {['radio'].map((type) => (
                   <div key={`inline-${type}`} className="mb-3">
-                    {item.sizes.map((one_size)=>{
-                    return (<Form.Check
-                      inline
-                      label={one_size}
-                      name="group1"
-                      type={type}
-                      id={`inline-${type}-1`}
-                      onClick={()=>setSize(one_size)}
-                    />)
-                  })}
+                    {item.sizes.map((one_size) => {
+                      return (<Form.Check
+                        inline
+                        label={one_size}
+                        name="group1"
+                        type={type}
+                        id={`inline-${type}-1`}
+                        onClick={() => { setSize(one_size); }}
+                      />)
+                    })}
                   </div>
                 ))}
               </Form>
@@ -85,28 +97,23 @@ const ItemDetail = ({ item }) => {
           </Row>
           <Row>
             <Col>
-              {(itemCounter !== 0) && (size !== 0) ? (
-                <>
-                  <Link to="/cart" className="d-grid gap-2" >
-                    <Button variant="danger" className="py-4" size="lg">
-                      Go to cart
-                    </Button>
-                  </Link>
-
-                  <Toast text={"You've added " + itemCounter + " " + item.name.toUpperCase() + " to your cart."} quantity={itemCounter} name={item.name} />
-                </>
-              ) : (
+              
                 <ItemCount
                   stock={parseInt(item.stock)}
                   initial={itemCounter}
                   onAdd={AddToCart}
                 />
-              )}
+              
             </Col>
           </Row>
         </Col>
       </Row>
-      </HideUntilLoaded>
+      <ToastContainer className="p-3 mt-5" position="top-end">
+        <Toast bg='warning' onClose={() => setShow(false)} show={show} delay={3000} autohide>
+          <Toast.Body>{"You've added " + itemCounter + " " + item.name.toUpperCase() + " to your cart."}</Toast.Body>
+        </Toast>
+      </ToastContainer>
+    </HideUntilLoaded>
     </>
 
   );

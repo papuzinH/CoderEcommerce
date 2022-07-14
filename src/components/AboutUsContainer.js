@@ -12,8 +12,8 @@ const AboutUsContainer = () => {
     
     return (<>
         {loading == false ?
-            <Container>
-                <Row className="py-5">
+            <Container >
+                <Row className="py-5 vh-100">
                     <Col xs={6}>
                         <img style={{ width: "100%" }} src="https://foolsparadise.de/static/c5f877cc607316806acdc92ed202909d/85319/sneaker_floating_3753da6b66.png" />
                     </Col>

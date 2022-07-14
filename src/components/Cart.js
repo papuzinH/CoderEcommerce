@@ -18,15 +18,13 @@ const Cart = () => {
   const [modalText, setModalText] = useState("")
   const handleCloseClean = () => setShowClean(false);
   const handleShowClean = () => setShowClean(true);
-  const handleCloseDelete = () => setShowDelete(false);
-  const handleShowDelete = () => setShowDelete(true);
 
   return (
     <>
       <ModalConfirmation handleClose={handleCloseClean} handleFunction={cart.cleanCart} show={showClean} text={modalText} />
       {cart.cartList.length > 0 ? (
         <>
-          <Container id="cartlist" className="py-5">
+          <Container id="cartlist" className="py-5 vh-100">
             <Row className="mb-5 align-items-center justify-content-between">
               <Col>
                 <h1 className="fw-bold fst-italic text-uppercase">Your cart</h1>
@@ -41,7 +39,6 @@ const Cart = () => {
               <Col sm={8}>
                 {cart.cartList.map((item, index) => (
                   <div key={index}>
-                    
                     <Row
                       key={item.idItem}
                       className="align-items-center justify-content-start"
@@ -71,12 +68,11 @@ const Cart = () => {
                       </Col>
                       <Col sm={1}>
                         <i
-                          onClick={() => { handleShowDelete(); setModalText("Do you want to delete this product from your Cart?");}}
+                          onClick={() => {cart.removeOfCart(item.idItem, item.sizeItem);}}
                           className="bi bi-x-circle-fill text-danger"
                         ></i>
                       </Col>
                     </Row>
-                    <ModalConfirmation handleClose={handleCloseDelete} handleFunction={ () =>{ cart.removeOfCart(index-1)}} show={showDelete} text={modalText} idItem = {item.idItem} />
                     <hr />
                   </div>
                 ))}

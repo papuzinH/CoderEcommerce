@@ -29,7 +29,7 @@ const ItemListContainer = () => {
   }, [idCategory]); //Importante la dependencia del useEffect para que se ejecute cuando "datos" es modificado.
 
   return (
-    <Container id="itemlist" className="py-5">
+    <Container id="itemlist" className="py-5 vh-100">
       {loading == true ? <h1 className="pb-2 fst-italic fw-bold text-uppercase">Our Products</h1> : ""}
       <Row className="g-3">
         <ItemList items={datos} />

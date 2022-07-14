@@ -1,5 +1,5 @@
 import React from "react";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 
 export const CartContext = createContext();
 
@@ -39,11 +39,10 @@ const CartContextProvider = ({ children }) => {
   }
 
 
-  const removeOfCart = (index) => {
-    console.log(cartList, index)
-    cartList.splice(index, 1)
-    console.log(cartList, index)
-    //setCartList(cartFiltered);
+  const removeOfCart = (id,size) => {
+    let cartFiltered = cartList.filter(
+      (one_product) => ((one_product.idItem !== id) || one_product.sizeItem !== size));
+    setCartList(cartFiltered);
   };
 
   const cleanCart = () => {
