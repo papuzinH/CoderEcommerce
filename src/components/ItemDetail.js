@@ -19,13 +19,15 @@ const ItemDetail = ({ item }) => {
   const [size, setSize] = useState(0);
   const [show, setShow] = useState(false);
 
-  const AddToCart = (quantity) => {
-    setShow(true);
+  const onAddQuantity = (quantity) => {
     setitemCounter(quantity);
   };
 
   const AddToCartReal = (quantity, size) => {
+    setShow(true);
     cart.addToCart(item, quantity, size);
+    setSize(0);
+    setitemCounter(0);
   };
 
   useEffect(() => {
@@ -101,7 +103,7 @@ const ItemDetail = ({ item }) => {
                 <ItemCount
                   stock={parseInt(item.stock)}
                   initial={itemCounter}
-                  onAdd={AddToCart}
+                  onAdd={onAddQuantity}
                 />
               
             </Col>
